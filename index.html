@@ -1,31 +1,80 @@
-<form
-  method="POST"
-  name="fa-form-1"
-  action="https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/-pXBHB5gEvCP1UWajsa0H4CFofwqVRnx6SrKAUFrINdscE3z0rFjOrtUKvySHndrB3C6s4-zFB5Qiqw7A8avM3PD9OO1Tu3-nJcQf0ZsIpsaSOEGlsHLVYX9yWG5HTI"
-  enctype="multipart/form-data"
-  accept-charset="utf-8"
->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nomad-Themed Contact Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-slate-800">
+  <header class="py-10">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <!-- Swap with real logo if desired -->
+      <img alt="Nomad" class="mx-auto h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg" />
+      <h1 class="mt-6 text-4xl font-extrabold tracking-tight">Get in Touch</h1>
+      <p class="mt-3 text-base text-slate-600">Send us a message and we’ll follow up by email. This is a standalone form using the Nomad theme.</p>
+    </div>
+  </header>
 
+  <main class="pb-20">
+    <section class="mx-auto max-w-3xl px-6">
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5">
+        <div class="p-8 sm:p-10">
+          <form
+            method="POST"
+            name="fa-form-1"
+            action="https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/-pXBHB5gEvCP1UWajsa0H4CFofwqVRnx6SrKAUFrINdscE3z0rFjOrtUKvySHndrB3C6s4-zFB5Qiqw7A8avM3PD9OO1Tu3-nJcQf0ZsIpsaSOEGlsHLVYX9yWG5HTI"
+            enctype="multipart/form-data"
+            accept-charset="utf-8"
+            class="space-y-5"
+          >
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
+              <input id="name" name="name" type="text" required autocomplete="name"
+                     class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200" placeholder="Jane Doe" />
+            </div>
 
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name">
-  </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email"
+                     class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200" placeholder="you@example.com" />
+            </div>
 
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email">
-  </div>
+            <div>
+              <label for="body" class="block text-sm font-medium text-slate-700">Message</label>
+              <textarea id="body" name="body" rows="5" required
+                        class="mt-2 block w-full resize-y rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200"
+                        placeholder="How can we help?"></textarea>
+            </div>
 
-  <div>
-    <textarea name="body"></textarea>
-  </div>
+            <div>
+              <label for="attachment" class="block text-sm font-medium text-slate-700">Attachment (optional)</label>
+              <input id="attachment" name="attachment" type="file"
+                     class="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-base file:mr-4 file:rounded-lg file:border-0 file:bg-emerald-600 file:px-4 file:py-2 file:font-medium file:text-white hover:file:bg-emerald-700" />
+              <p class="mt-1 text-xs text-slate-500">Include screenshots, PDFs, or images if helpful.</p>
+            </div>
 
-  <div>
-    <input type="file" name="attachment">
-  </div>
+            <!-- e.g., reCAPTCHA -->
+            <div id="html_element" class="pt-1"></div>
 
-   <div id="html_element"></div>
-  <div>
-    <input type="submit" value="Send">
-  </div></form>
+            <div class="pt-2">
+              <button type="submit"
+                class="inline-flex w-full items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-[1px]">
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <p class="mt-6 text-center text-xs text-slate-500">This form posts to a Front secure webhook. Adjust labels/placeholders as needed.</p>
+    </section>
+  </main>
+</body>
+</html>
