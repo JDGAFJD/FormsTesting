@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Refunds and Credits Team</title>
+  <title>Contact Support — Nomad Theme</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
-  </style>
+  <style> html,body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif} </style>
 </head>
 <body class="bg-white text-slate-800">
   <header class="py-10">
     <div class="mx-auto max-w-3xl px-6 text-center">
-      <h1 class="mt-6 text-4xl font-extrabold tracking-tight">Refunds and Credits Team</h1>
-      <p class="mt-3 text-base text-slate-600">Send us a message and we would follow up</p>
+      <!-- Swap src with your real logo; adjust h-[3.4rem] if needed -->
+      <img alt="Nomad" class="mx-auto h-[3.4rem] w-auto" src="https://cdn.open-pr.com/X/7/X722306059_g.jpg" />
+      <h1 class="mt-6 text-4xl font-extrabold tracking-tight">Contact Support</h1>
+      <p class="mt-3 text-base text-slate-600">Choose the department and send us the details. We’ll follow up by email.</p>
     </div>
   </header>
 
@@ -24,46 +24,53 @@
     <section class="mx-auto max-w-3xl px-6">
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5">
         <div class="p-8 sm:p-10">
-          <form
-            method="POST"
-            name="fa-form-1"
-            action="https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/-pXBHB5gEvCP1UWajsa0H4CFofwqVRnx6SrKAUFrINdscE3z0rFjOrtUKvySHndrB3C6s4-zFB5Qiqw7A8avM3PD9OO1Tu3-nJcQf0ZsIpsaSOEGlsHLVYX9yWG5HTI"
-            enctype="multipart/form-data"
-            accept-charset="utf-8"
-            class="space-y-5"
-          >
+
+          <!-- Single form; action is switched via JS based on Department -->
+          <form method="POST" name="fa-form-1" action="" enctype="multipart/form-data" accept-charset="utf-8" class="space-y-5">
+
+            <!-- Department selector (controls the webhook endpoint) -->
+            <div>
+              <label for="department" class="block text-sm font-medium text-slate-700">Department</label>
+              <select id="department" name="department" required class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200">
+                <option value="" selected disabled>— Select a department —</option>
+                <option value="billing">Billing Help Team</option>
+                <option value="trial">Trial Activations</option>
+                <option value="outage">Outage Response Team</option>
+                <option value="collection">Customer Collection</option>
+                <option value="refunds">Refunds &amp; Credits</option>
+              </select>
+            </div>
+
             <div>
               <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
-              <input id="name" name="name" type="text" required autocomplete="name"
-                     class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200" placeholder="Jane Doe" />
+              <input id="name" name="name" type="text" required autocomplete="name" placeholder="Jane Doe" class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200" />
             </div>
 
             <div>
               <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email"
-                     class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200" placeholder="you@example.com" />
+              <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="mt-2 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200" />
             </div>
 
             <div>
               <label for="body" class="block text-sm font-medium text-slate-700">Message</label>
-              <textarea id="body" name="body" rows="5" required
-                        class="mt-2 block w-full resize-y rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200"
-                        placeholder="How can we help?"></textarea>
+              <textarea id="body" name="body" rows="5" required placeholder="How can we help?" class="mt-2 block w-full resize-y rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200"></textarea>
+              <p class="mt-2 text-xs text-slate-500">Add order #, IMEI/ICCID, or any context to speed things up.</p>
             </div>
 
             <div>
               <label for="attachment" class="block text-sm font-medium text-slate-700">Attachment (optional)</label>
-              <input id="attachment" name="attachment" type="file"
-                     class="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-base file:mr-4 file:rounded-lg file:border-0 file:bg-emerald-600 file:px-4 file:py-2 file:font-medium file:text-white hover:file:bg-emerald-700" />
-              <p class="mt-1 text-xs text-slate-500">Include screenshots, PDFs, or images if helpful.</p>
+              <input id="attachment" name="attachment" type="file" class="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-base file:mr-4 file:rounded-lg file:border-0 file:bg-emerald-600 file:px-4 file:py-2 file:font-medium file:text-white hover:file:bg-emerald-700" />
+              <p class="mt-1 text-xs text-slate-500">Screenshots, PDFs, or images accepted.</p>
             </div>
 
-            <!-- e.g., reCAPTCHA -->
+            <!-- reCAPTCHA or any widget injected here -->
             <div id="html_element" class="pt-1"></div>
 
+            <!-- Optional: success redirect (uncomment to enable) -->
+            <!-- <input type="hidden" name="redirect_to" value="https://nomadinternet.com/pages/support/contactus/success"> -->
+
             <div class="pt-2">
-              <button type="submit"
-                class="inline-flex w-full items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 active:translate-y-[1px]">
+              <button id="submitBtn" type="submit" disabled class="inline-flex w-full cursor-not-allowed items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white opacity-60 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300">
                 Send
               </button>
             </div>
@@ -71,7 +78,51 @@
         </div>
       </div>
 
-          </section>
+      <p class="mt-6 text-center text-xs text-slate-500">This form posts to a Front secure webhook based on the chosen department.</p>
+    </section>
   </main>
+
+  <script>
+  (() => {
+    const form = document.forms['fa-form-1'];
+    const dept = document.getElementById('department');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Department → Front webhook endpoint
+    const ACTIONS = {
+      billing: 'https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/-pXBHB5gEvCP1UWajsa0H4CFofwqVRnx6SrKAUFrINdscE3z0rFjOrtUKvySHndrB3C6s4-zFB5Qiqw7A8avM3PD9OO1Tu3-nJcQf0ZsIpsaSOEGlsHLVYX9yWG5HTI',
+      trial:   'https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/bZ-JZ5NOXf6Rfg5-iNEK0W23qwv5Gv-xbfAgUjWGcbxZHMhJBk7pKSG-syXCTJMtbyLGnD2lep1LDsqU-oF0pzAyVnViI1mkivjwbmHjPmu4ohKIaklQ_9mCSlRBYCc',
+      outage:  'https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/WaDRF4o9HH5xCZvApP6U7DWt8b82P_Hi05vxSI3D378HpTHJvrT_qiHmAYSLmtCVaBWddB_M9zZ4mGK9njb_dUQP-8C6IwmKLrYbenQNZj34DkauN7FrU5y2jQhQ_9o',
+      collection: 'https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/QW4vdUMgmiNjyzL8fDqL4arr4tIm5BeGy3HGGRJrVvl2t-OWfRUmFqjYO_XNxldUVbYZTz_9nNWdhlj0AOF6BISY-up67PpQbxYLzGNznZJ2KV92HK650Bjc68sUpBM',
+      refunds: 'https://webhook.frontapp.com/forms/c3a9171948b36a4fdd69/qwnrydykvh3K134QVq4vkpuz3VqQyA4J3grKSCNyWQHVp-3b2XyXc-_OIDIXgEwiUyKC2AozXC6DWlFP6cjSNYo2s-cvTz9WFjj6y0QfGVjWSG04y-_wHMmog2cOvUI'
+    };
+
+    function updateAction() {
+      const action = ACTIONS[dept.value] || '';
+      form.action = action;
+      const ready = !!action;
+      submitBtn.disabled = !ready;
+      submitBtn.classList.toggle('opacity-60', !ready);
+      submitBtn.classList.toggle('cursor-not-allowed', !ready);
+      submitBtn.classList.toggle('hover:bg-emerald-700', ready);
+      submitBtn.classList.toggle('active:translate-y-[1px]', ready);
+    }
+
+    dept.addEventListener('change', updateAction);
+    updateAction(); // initialize
+
+    form.addEventListener('submit', (e) => {
+      if (!form.action) {
+        e.preventDefault();
+        alert('Please select a department before submitting.');
+        return;
+      }
+      // Guard against double submits
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-60');
+    });
+  })();
+  </script>
 </body>
 </html>
